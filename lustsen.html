@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>John Denver Music Library</title>
+    
+    <!-- External Google Fonts for styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        /* Main Content Section */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+        
+        /* Music Library List */
+        .song-list {
+            flex-basis: 45%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+        
+        .song-list h2 {
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .song-item {
+            font-size: 1.2em;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .song-item:hover {
+            background-color: #ddd;
+        }
+
+        /* Audio Player */
+        .audio-player {
+            flex-basis: 45%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            text-align: center;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        /* YouTube Links */
+        .youtube-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .youtube-links a {
+            display: inline-block;
+            margin: 10px;
+            color: #ff6347;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .youtube-links a:hover {
+            color: #e5533f;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #282c34;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .song-list, .audio-player {
+                flex-basis: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>North shore music</h1>
+        <p>following along the north shore with Bob Dylan minnesota native and so much more</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <!-- Song List -->
+        <div class="song-list">
+            <h2>John Denver's Songs</h2>
+            <div class="song-item" onclick="playSong('https://www.youtube.com/playlist?list=PLpTHjAucqq9A2IDIsR8Ftbg7U6bKCMrcr')">Bob Dylans greatest hits</div>
+            <div class="song-item" onclick="playSong('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3')">john denver</div>
+            <div class="song-item" onclick="playSong('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3')">Rocky Mountain High</div>
+            <div class="song-item" onclick="playSong('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3')">Sunshine on My Shoulders</div>
+            <div class="song-item" onclick="playSong('http://schneidernet.net/')">find more at schneidernet.net</div>
+        </div>
+
+        <!-- Audio Player -->
+        <div class="audio-player">
+            <h2>Now Playing</h2>
+            <audio id="audioPlayer" controls>
+                <source id="audioSource" src="" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <!-- YouTube Video Links -->
+    <div class="youtube-links">
+        <h3>Watch on YouTube:</h3>
+        <a href="https://www.youtube.com/watch?v=1vrEljMfXYo" target="_blank">Bob Dylan</a>
+        <a href="https://www.youtube.com/watch?v=zr2NSjI2K_U" target="_blank">Annie's Song</a>
+        <a href="https://www.youtube.com/watch?v=wK5gsE6zzhM" target="_blank">Rocky Mountain High</a>
+        <a href="https://www.youtube.com/watch?v=1wzxwpI6j5s" target="_blank">Sunshine on My Shoulders</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 John Denver Music Library | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Function to play the selected song
+        function playSong(songUrl) {
+            const audioPlayer = document.getElementById('audioPlayer');
+            const audioSource = document.getElementById('audioSource');
+            audioSource.src = songUrl; // Set the source of the audio
+            audioPlayer.load(); // Reload the audio element with the new song
+            audioPlayer.play(); // Play the song
+        }
+    </script>
+
+</body>
+</html>
